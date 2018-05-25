@@ -1,2 +1,2 @@
 # gitskills
-this a text
+this is a text
