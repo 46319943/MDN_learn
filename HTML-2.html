@@ -23,7 +23,19 @@
             1000px" 
     srcset="images/icon2.png 380w,
             images/icon.png 780w">
-    <img src="images/poster.png" alt="" srcset="images/icon.png,images/icon2.png 1.5x">
+    <img src="images/poster.png" alt="" 
+    srcset="images/icon.png,
+            images/icon2.png 2x">
+    <picture>
+        <source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg">
+        <source media="(min-width: 800px)" srcset="elva-800w.jpg">
+        <img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
+    </picture>
+    <picture>
+        <source type="image/svg+xml" srcset="pyramid.svg">
+        <source type="image/webp" srcset="pyramid.webp"> 
+        <img src="pyramid.png" alt="regular pyramid built from four equilateral triangles">
+    </picture>
 </body>
 
 </html>
