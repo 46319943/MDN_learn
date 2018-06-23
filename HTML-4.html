@@ -24,7 +24,7 @@
         label {
             /* 确保所有label大小相同并正确对齐 */
             display: inline-block;
-            width: 90px;
+            width: 150px;
             text-align: right;
         }
 
@@ -35,7 +35,7 @@
             font: 1em sans-serif;
 
             /* 使所有文本输入框大小相同 */
-            width: 300px;
+            width: 150px;
             box-sizing: border-box;
 
             /* 调整文本输入框的边框样式 */
@@ -241,12 +241,67 @@
             </datalist>
         </div>
         <div>
-            <button type="submit" name="button" value="hahaha">submit button</button>
+            <button type=F "submit" name="button" value="button with value">submit button</button>
+        </div>
+        <div>
+            <input type="number" name="age" id="age" min="1" max="10" step="0.1">
+
+
+        </div>
+        <div>
+            <label for="beans">How many beans can you eat?</label>
+            <input type="range" name="beans" id="beans" min="0" max="500" step="10">
+            <span class="beancount"></span>
+        </div>
+        <div>
+            <input type="datetime-local" name="" id="">
+            <input type="month" name="" id="">
+            <input type="time" name="" id="">
+            <input type="week" name="" id="">
+        </div>
+        <div>
+            <label for="myDate">When are you available this summer?</label>
+            <input type="date" name="myDate" min="2013-06-01" max="2013-08-31" id="myDate">
+        </div>
+        <div>
+            <input type="color" name="" id="">
+        </div>
+        <div>
+            <input type="file" name="" id="" accept="image/*,audio/*">
+        </div>
+        <div>
+            <input type="hidden" id="timestamp" name="timestamp" value="1286705410">
+        </div>
+        <div>
+            <input type="image" name="image-button" alt="Click me!" src="my-img.png" width="80" height="30" />
+        </div>
+        <div>
+            <progress max="100" value="75">75/100</progress>
+        </div>
+        <div>
+            <meter min="0" max="100" value="10" low="33" high="66" optimum="50">10</meter>
+            <meter min="0" max="100" value="50" low="33" high="66" optimum="50">50</meter>
+            <meter min="0" max="100" value="90" low="33" high="66" optimum="50">90</meter>
+        </div>
+        <div>
+            <meter min="0" max="100" value="10" low="33" high="66" optimum="0">10</meter>
+            <meter min="0" max="100" value="50" low="33" high="66" optimum="0">50</meter>
+            <meter min="0" max="100" value="90" low="33" high="66" optimum="0">90</meter>
         </div>
         <br>
         <br>
         <br>
     </form>
+    <script>
+        var beans = document.querySelector('#beans');
+        var count = document.querySelector('.beancount');
+
+        count.textContent = beans.value;
+
+        beans.oninput = function () {
+            count.textContent = beans.value;
+        }
+    </script>
 </body>
 
 </html>
