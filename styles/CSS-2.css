@@ -1,0 +1,35 @@
+/* General styles */
+body {
+    margin: 0;
+  }
+  
+  #wrapper * {
+    padding: 20px;
+    font-size: 20px;
+    border: 20px solid rgba(0,0,0,0.5);
+  }
+  
+  /* specific boxes */
+  
+  #wrapper header, #wrapper footer {
+    background-color: blue;
+    color: white;
+  }
+  
+  #wrapper main {
+    background-color: yellow;
+    box-sizing: border-box;
+    width: 50%;
+    /* 高度用百分比设置无效，只能使用px或 em相对值 */
+    /* height: 150%; */
+    /* 边框不能用百分比设置 */
+    /* border: 50% solid black; */
+  }
+  
+  #wrapper header {
+  
+  }
+  
+  #wrapper footer {
+
+  }

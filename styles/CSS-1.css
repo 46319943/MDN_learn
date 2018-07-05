@@ -1,0 +1,6 @@
+label:nth-of-type(2){
+    background-color: red;
+}
+div > *:nth-child(3) {
+    background-color: green;
+}
