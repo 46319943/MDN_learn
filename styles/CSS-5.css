@@ -1,0 +1,7 @@
+@font-face{
+    font-family: li_xuke_comic_fontregular;
+    src: url("../fonts/animation.ttf");
+}
+html{
+    font-family: li_xuke_comic_fontregular;
+}

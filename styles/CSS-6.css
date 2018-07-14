@@ -1,0 +1,118 @@
+/* General setup */
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0 auto;
+    min-width: 1000px;
+    max-width: 1400px;
+  }
+  
+  /* Layout */
+  
+  section {
+    float: left;
+    width: 50%;
+  }
+  
+  aside {
+    float: left;
+    width: 30%;
+  }
+  
+  nav {
+    float: left;
+    width: 20%;
+  }
+  
+  footer {
+    clear: both;
+  }
+  
+  header, section, aside, nav, footer {
+    padding: 20px;
+  }
+  
+  /* header and footer */
+  
+  header, footer {
+    border-top: 5px solid #a66;
+    border-bottom: 5px solid #a66;
+  }
+  
+  /* WRITE YOUR CODE BELOW HERE */
+
+  html{
+      font-size: 10px;
+
+  }
+
+  h1{
+      font-size: 2.5rem;
+      text-align: center;
+      letter-spacing: 0.5rem;
+
+  }
+  h2{
+      font-size: 2rem;
+
+  }
+  p{
+      font-size: 1rem;
+
+  }
+  body{
+      line-height: 1.5rem;
+      letter-spacing: 0.1rem;
+      word-spacing: 0.1rem;
+  }
+  h2 + p{
+      text-indent: 2em;
+  }
+  a{
+    color: #a66;
+    text-decoration: none;
+    outline: none;
+    border-bottom: 1px solid;
+  }
+  section  a[href*='http' i]{
+      background-image:  url("../images/external-link-52.png");
+      background-repeat: no-repeat;
+      background-position: 100% 0;
+    background-size: 1rem 1rem;
+    padding-right: 1.1rem;
+    
+
+  }
+  section a:hover,section a:focus{
+      border-bottom: none;
+  }
+  a:active{
+    background-color: rgb(240, 150, 150);
+    color: rgb(78, 48, 48);
+  }
+
+  ul,ol{
+      list-style: none;
+  }
+  section li{
+      line-height: 1.5rem;
+      background: url("../images/external-link-52.png") no-repeat 0 0;
+      background-size: 1rem 1rem;
+      padding-left: 1.2rem;
+  }
+  nav a {
+      width: 13rem;
+      display: inline-block;
+      padding: 2rem 1rem;
+      border: #a66 0.5px solid;
+      margin-bottom: 2rem;
+      text-align: center;
+      
+  }
+  nav a:hover{
+      
+  }
+  
