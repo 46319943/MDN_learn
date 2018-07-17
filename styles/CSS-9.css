@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    background: #ccc;
+  }
+  
+  article {
+    width: 210mm;
+    height: 297mm;
+    margin: 20px auto;
+    position: relative;
+  }
+  
+  address {
+    position: absolute;
+    bottom: 8mm;
+    right: 20mm;
+  }
+  
+  h1 {
+    position: absolute;
+    top: 12mm;
+    left: 20mm;
+    width: 126px;
+    height: 126px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 44px 0;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+  }
+  
+  /* Your CSS below here */
+  article{
+    background: url("../images/top-image.png") no-repeat left top;
+    background: 
+    linear-gradient(to bottom,rgba(0,0,0,0.3),rgba(0,0,0,0) 15%,rgba(0,0,0,0) 85%, rgba(0,0,0,0.3)),
+    url("../images/top-image.png") no-repeat left top,
+    url("../images/bottom-image.png") no-repeat left bottom;
+    
+    background-color: white;
+    border: 1mm solid black;
+  }
+  h1{
+    border:none;
+    background: url("../images/logo.png") no-repeat center center;
+    /* filter: drop-shadow(1px 1px 1px black);
+    -webkit-filter: drop-shadow(2px 2px 2px black); */
+
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px black;
+  }

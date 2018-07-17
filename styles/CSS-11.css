@@ -1,0 +1,19 @@
+body{
+    width: 90%;
+
+}
+p{
+    line-height: 2;
+    word-spacing: 0.1rem;
+    /* text-indent: 2em; */
+}
+p::first-letter{
+    font-size: 3em;
+    float: left;
+    line-height: 1;
+
+}
+img{
+    float: left;
+    margin-right: 2rem;
+}

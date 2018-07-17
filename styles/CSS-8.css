@@ -1,0 +1,24 @@
+table{
+    width: 500px;
+    table-layout: fixed;
+    border: 1px solid;
+    border-collapse: collapse;
+    
+}
+th,td{
+    border: 1px solid;
+
+    overflow: auto;
+}
+thead th:nth-child(1){
+    width: 50px;
+}
+thead th:nth-child(2){
+    width: 250px;
+}
+thead th:nth-child(3){
+    width: 100px;
+}
+thead th:nth-child(4){
+    width: 100px;
+}

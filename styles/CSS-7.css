@@ -1,0 +1,13 @@
+a{
+    padding: 10px;
+    background: red;
+    margin: 10px;
+    border: 10px yellow solid;
+
+    line-height: 500%;
+    
+
+}
+a:nth-child(1){
+    display: block;
+}
