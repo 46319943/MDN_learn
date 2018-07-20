@@ -1,176 +1,29 @@
-<script>
-    var data;
-
-    $(document).ready(function () {
-        $.ajax({
-            url: "https://api.whusu.org/wechat/execute/biye.php",
-            dataType: "json",
-            async: true,
-            data: {
-                "action": "getUserNumber"
-            },
-            xhrFields: {
-                withCredentials: true
-            },
-            type: "POST",
-            success: function (res) {
-
-
-                jssdk_config(res);
-
-
-            }
-        });
-    });
-
-    $(document).ready(function () {
-        $("#get").click(function () {
-            if ($("#list").val() == "") {
-                $.toptip('列号不能为空', 'warning');
-                return false;
-            }
-            if ($("#vf").val() == "") {
-                $.toptip('验证码不能为空', 'warning');
-                return false;
-            }
-            if ($("#list").val() > 81 || $("#list").val() < 1) {
-                $.toptip('列号错误', 'warning');
-                return false;
-            }
-            $("#get").addClass("weui-btn_loading");
-            $("#get").text("正在加载");
-            $.ajax({
-                url: "https://api.whusu.org/wechat/execute/biye.php",
-                dataType: "json",
-                async: true,
-                data: {
-                    "action": "getListImg",
-                    "ls": $("#list").val(),
-                    "vf": $("#vf").val()
-                },
-                xhrFields: {
-                    withCredentials: true
-                },
-                type: "POST",
-                success: function (res) {
-                    if (res.errcode == 60020) {
-                        $.toptip('您的操作太频繁啦，请稍后再试', 'warning');
-                        return;
-                    }
-                    $("#get").removeClass("weui-btn_loading");
-                    $("#get").text("获取");
-
-                    if (res['errcode'] == 60004) {
-                        $.toptip('验证码错误', 'warning');
-                        $("#code").attr("src", "https://api.whusu.org/VfCode.php");
-                        return false;
-                    }
-                    if (res['errcode'] == 60005) {
-                        $.toptip('该列图片还未上传', 'warning');
-                        $("#code").attr("src", "https://api.whusu.org/VfCode.php");
-                        return false;
-                    }
-                    else {
-                        $("#code").attr("src", "https://api.whusu.org/VfCode.php");
-                        $(".weui-loadmore").removeAttr("hidden");
-                        $(".weui-cells_form").hide();
-                        $("#get").hide();
-                        data = res.data;
-                        ata();
-                        ata();
-                        ata();
-                    }
-                }
-            });
-        });
-    });
-    $(document).ready(function () {
-        $("#code").click(function () {
-            $(this).attr("src", "https://api.whusu.org/VfCode.php");
-        });
-    });
-
-    var totalHeight = 0;
-    var num = 1;
-
-    function ata() {
-        totalHeight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());
-        if ($(document).height() <= totalHeight && num <= data.length) {
-            var dom = document.createElement("img");
-            $("#imgList").append(dom);
-            $("img:eq(" + num + ")").attr("src", data[num - 1].small);
-            $("img:eq(" + num + ")").attr("id", num - 1);
-            $("img:eq(" + num + ")").attr("onclick", "gallery('" + data[num - 1].img + "')");
-            $("img:eq(" + num + ")").addClass("userImg");
-
-            num++;
-        }
-        if (num > data.length) {
-            $(".weui-loadmore__tips").text("所有图片已加载完成");
-            $(".weui-loading").hide();
-            $("img:last").attr("src", data[0].small);
-            $("img:last").attr("id", 0);
-            $("img:last").attr("onclick", "gallery('" + data[0].img + "')");
-            $("img:last").addClass("userImg");
-        }
-    }
-
-    $(document).ready(function () {
-        $(window).scroll(function () {
-            console.log("滚动条到顶部的垂直高度：" + $(window).scrollTop());
-            console.log("页面的文档高度：" + $(document).height());
-            console.log("浏览器的高度：" + $(window).height());
-            ata();
-        });
-
-    });
-
-    function gallery(url) {
-        $(".weui-gallery").css("display", "block");
-        $(".weui-gallery__img").attr("src", url);
-    }
-
-
-
-
-
-
-
-    function jssdk_config(res) {
-        wx.config({
-            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-            appId: res.signPackage.appId, // 必填，公众号的唯一标识
-            timestamp: res.signPackage.timestamp, // 必填，生成签名的时间戳
-            nonceStr: res.signPackage.nonceStr, // 必填，生成签名的随机串
-            signature: res.signPackage.signature, // 必填，签名
-            jsApiList: ['hideAllNonBaseMenuItem', 'onMenuShareTimeline', 'showMenuItems', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表
-        });
-        wx.ready(function () {
-            wx.hideAllNonBaseMenuItem();
-            wx.showMenuItems({
-                menuList: ['menuItem:share:timeline', 'menuItem:share:appMessage'] // 要显示的菜单项，所有menu项见附录3
-            });
-            wx.onMenuShareTimeline({
-                title: res.share.title, // 分享标题
-                link: "https://wx.whusu.org/biye", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                imgUrl: res.share.img, // 分享图标
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                }
-            });
-            wx.onMenuShareAppMessage({
-                title: res.share.title, // 分享标题
-                desc: res.share.desc, // 分享描述
-                link: 'https://wx.whusu.org/biye', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                imgUrl: res.share.img, // 分享图标
-                type: '', // 分享类型,music、video或link，不填默认为link
-                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                success: function () {
-                    // 用户确认分享后执行的回调函数
-                }
-            });
-        });
-    }
-
-
-</script>
+<!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids -->
+<style>
+    body {
+  width: 100%;
+  margin: 2em auto;
+  font: .9em/1.2 Arial, Helvetica, sans-serif;
+}         
+.container > div {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgb(207,232,220);
+  border: 2px solid rgb(79,185,227);
+}  
+                .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 20px;
+}
+</style>
+<div class="container">
+    <div>One</div>
+    <div>Two</div>
+    <div>Three</div>
+    <div>Four</div>
+    <div>Five</div>
+    <div>Six</div>
+    <div>Seven</div>
+  </div>                      

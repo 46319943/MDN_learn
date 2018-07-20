@@ -1,0 +1,65 @@
+html {
+    font-family: sans-serif;
+}
+  
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+.info-box {
+    width: 450px;
+    height: 400px;
+    position: fixed;
+    top:0;
+
+}
+.info-box > ul{
+    padding-left: 0;
+    margin-top: 0;
+    list-style: none;
+}
+.info-box > ul > li{
+    width: 150px;
+    float: left;
+}
+.info-box a{
+    display: block;
+    text-decoration: none;
+    /* width: 100%; */
+    line-height: 3;
+    background: red;
+    color: black;
+    text-align: center;
+}
+.info-box a:focus, .info-box a:hover, .info-box a.active{
+    background: #a60000;
+    color: white;
+}
+.info-box div.panels{
+    height: 352px;
+    position: relative;
+    clear: both;
+}
+.info-box article{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 352px;
+    padding: 10px;
+    color: white;
+    background: #a60000;
+}
+.info-box article.active-panel{
+    z-index: 1;
+}
+
+.fake-content{
+    background-color: #a60000;
+    color: white;
+    padding: 10px;
+    height: 2000px;
+    margin-left: 470px;
+}

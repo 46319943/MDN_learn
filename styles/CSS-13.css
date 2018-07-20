@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+}
+label[for="toggle"]{
+    font-size: 3rem;
+    position: fixed;
+    top: 2px;
+    right: 1px;
+    z-index: 1;
+    cursor: pointer;
+}
+input[type="checkbox"]{
+    display: none;
+    /* position: fixed;
+    top:-10px; */
+}
+aside{
+    background: gray;
+    height: 100%;
+    width: 30%;
+    padding: 5%;
+    position: fixed;
+    right: -35%;
+    top:0;
+    transition: 0.5s all;
+}
+input[type="checkbox"]:checked + aside{
+    right: 0;
+}
+

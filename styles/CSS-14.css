@@ -1,0 +1,21 @@
+section{
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+}
+
+div{
+    flex: 200px;
+    background: blue;
+    margin:10px;
+
+    text-align: center;
+    /* width: 200px; */
+    height: 200px;
+
+    color: white;
+    font-size: 5em;
+}
+div:nth-child(2){
+    flex: 3 200px;
+}
