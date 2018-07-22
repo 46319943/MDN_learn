@@ -1,3 +1,4 @@
+
 var displayedImage = document.querySelector('.displayed-img') as HTMLImageElement;
 var thumbBar = document.querySelector('.thumb-bar');
 
@@ -9,7 +10,6 @@ for(var i = 1;i <= 5;i++ ){
     var newImage = document.createElement('img');
     newImage.setAttribute('src', 'images/pic' + i + '.jpg');
     thumbBar.appendChild(newImage);
-
     // newImage.addEventListener('click',function(event){
     //     displayedImage.setAttribute('src',(<HTMLImageElement>event.target).getAttribute('src'));
     // });
