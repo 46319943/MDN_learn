@@ -2,4 +2,4 @@
 // import './ES-2.js';
 
 // 接口转发
-export * from './ES-2';
+export * from './ES-2.js';
