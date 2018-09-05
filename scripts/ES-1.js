@@ -1,1 +1,1 @@
-import './ES-2';
+import './ES-2.js';
