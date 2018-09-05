@@ -17,9 +17,10 @@
 </html>
 
 <script>
-  let a = 1;
-  let str = `${a}`;
-  console.log(str);
-  a = 2;
-  console.log(str);
+  let obj1 = {1:'1'};
+  let obj2 = {2:'2'}
+  let arr = [obj1,obj2];
+  for (const obj of arr) {
+    console.log(obj === obj1);
+  }
 </script>
